@@ -1,0 +1,4 @@
+- Add styled components
+- Add redux?
+- Add prop-types
+- Add some info about enabling Thai keyboard
