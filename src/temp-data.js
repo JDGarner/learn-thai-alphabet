@@ -12,7 +12,7 @@ const tempData = [
   {
     english: "Sleep",
     phoentic: "Non",
-    thai: "นอน่"
+    thai: "นอน"
   }
 ];
 

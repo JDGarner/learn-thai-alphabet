@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, TouchableHighlight, TextInput } from "react-native";
 import styled from "styled-components";
+import { View, Text, TouchableHighlight, TextInput } from "react-native";
+import { LargeText, MediumText } from "../../components/text/Text";
+
+const GivenText = styled(LargeText)`
+  text-align: center;
+`;
 
 export default class Question extends Component {
   constructor(props) {
@@ -16,16 +21,17 @@ export default class Question extends Component {
     });
   };
 
+  // onSubmitAnswer => resetText
+
   render() {
     const { givenText, phonetic, onSubmitAnswer } = this.props;
     const { userAnswerText } = this.state;
 
     return (
       <View>
-        {/* in big bold */}
-        <Text>{givenText}</Text>
-        {/* in small grey */}
-        <Text>{phonetic}</Text>
+        {/* <CenteredText>{givenText}</CenteredText> */}
+        <GivenText>{givenText}</GivenText>
+        <MediumText>{`(${phonetic})`}</MediumText>
         <TextInput onChangeText={this.onChangeText} value={userAnswerText} />
         <TouchableHighlight onPress={() => onSubmitAnswer(userAnswerText)}>
           <Text>Submit</Text>

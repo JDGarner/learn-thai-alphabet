@@ -1,7 +1,7 @@
 import React from "react";
-import { View } from "react-native";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Quiz from "./src/features/quiz/Quiz";
+import theme from "./src/theme";
 
 const Container = styled.View`
   flex: 1;
@@ -12,8 +12,10 @@ const Container = styled.View`
 
 export default function App() {
   return (
-    <Container>
-      <Quiz />
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Quiz />
+      </Container>
+    </ThemeProvider>
   );
 }
