@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { View, Text, TouchableHighlight, TextInput } from "react-native";
-import { LargeText, MediumText } from "../../components/text/Text";
+import { LargeText, MediumText, MediumButton } from "../../components";
 
 const GivenText = styled(LargeText)`
   text-align: center;
@@ -33,9 +33,9 @@ export default class Question extends Component {
         <GivenText>{givenText}</GivenText>
         <MediumText>{`(${phonetic})`}</MediumText>
         <TextInput onChangeText={this.onChangeText} value={userAnswerText} />
-        <TouchableHighlight onPress={() => onSubmitAnswer(userAnswerText)}>
+        <MediumButton onPress={() => onSubmitAnswer(userAnswerText)}>
           <Text>Submit</Text>
-        </TouchableHighlight>
+        </MediumButton>
       </View>
     );
   }

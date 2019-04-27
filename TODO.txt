@@ -1,4 +1,11 @@
-- Add styled components
-- Add redux?
-- Add prop-types
+Main:
+- test styled-components cascading e.g. apply red color to a container
+- Add style/design
+- Add more words
 - Add some info about enabling Thai keyboard
+
+Minor:
+- Add prop-types
+
+Maybe:
+- Add redux?

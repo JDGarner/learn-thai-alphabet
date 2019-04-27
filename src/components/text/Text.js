@@ -9,4 +9,4 @@ export const LargeText = decorateText("large");
 export const MediumText = decorateText("medium");
 export const SmallText = decorateText("small");
 
-// export const CenteredText = text => 
+// export const CenteredText = text =>
