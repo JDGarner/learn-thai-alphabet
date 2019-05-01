@@ -1,7 +1,13 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { View, Text, TextInput } from "react-native";
-import { LargeText, MediumText, MediumButton, CenteredContainer } from "../../components";
+import { Text, TextInput, View } from "react-native";
+import {
+  LargeText,
+  MediumText,
+  MediumButton,
+  CenteredContainer,
+  HideKeyboard
+} from "../../components";
 
 const GivenText = styled(LargeText)`
   text-align: center;
@@ -22,37 +28,32 @@ const SubmitButton = styled(MediumButton)`
   margin-bottom: 220px;
 `;
 
-export default class Question extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userAnswerText: ""
-    };
-  }
+const AnswerInput = styled(TextInput)`
+  border-bottom-width: 1px;
+  border-bottom-color: grey;
+`;
 
-  onChangeText = text => {
-    this.setState({
-      userAnswerText: text
-    });
+export default function Question({ givenText, phonetic, onSubmitAnswer }) {
+  const [userAnswerText, setUserAnswerText] = useState("");
+
+  // TODO: ok to declare inside here?
+  const onSubmit = () => {
+    onSubmitAnswer(userAnswerText);
+    setUserAnswerText("");
   };
 
-  // onSubmitAnswer => resetText
-
-  render() {
-    const { givenText, phonetic, onSubmitAnswer } = this.props;
-    const { userAnswerText } = this.state;
-
-    return (
+  return (
+    <HideKeyboard>
       <QuestionContainer>
         <QuestionDetails>
           <GivenText>{givenText}</GivenText>
           <MediumText>{`(${phonetic})`}</MediumText>
-          <TextInput onChangeText={this.onChangeText} value={userAnswerText} />
+          <AnswerInput onChangeText={setUserAnswerText} value={userAnswerText} />
         </QuestionDetails>
-        <SubmitButton onPress={() => onSubmitAnswer(userAnswerText)}>
+        <SubmitButton onPress={onSubmit}>
           <Text>Submit</Text>
         </SubmitButton>
       </QuestionContainer>
-    );
-  }
+    </HideKeyboard>
+  );
 }

@@ -1,5 +1,6 @@
 Main:
-- test styled-components cascading e.g. apply red color to a container
+- use generic react hook for text change?
+- read up on react hooks best practices
 - Add style/design
 - Add more words
 - Add some info about enabling Thai keyboard
