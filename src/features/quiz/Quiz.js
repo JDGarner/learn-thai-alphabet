@@ -25,18 +25,30 @@ export default class Quiz extends Component {
     // check if answer matches userAnswerText matches correctAnswerText
   };
 
-  render() {
+  getQuestionProps = () => {
     const {
-      question: { english, phoentic, thai },
+      question: { english, phonetic, thai },
       questionType
     } = this.state;
-    const isThaiQuestion = questionType === THAI;
 
-    const givenText = isThaiQuestion ? english : thai;
-    // const answerText = isThaiQuestion ? thai : english;
+    if (questionType === THAI) {
+      return {
+        givenText: english,
+        answerText: thai,
+        phonetic,
+        placeholder: "Enter Thai"
+      };
+    }
 
-    return (
-      <Question givenText={givenText} phonetic={phoentic} onSubmitAnswer={this.onSubmitAnswer} />
-    );
+    return {
+      givenText: thai,
+      answerText: english,
+      phonetic,
+      placeholder: "Enter English"
+    };
+  };
+
+  render() {
+    return <Question {...this.getQuestionProps()} onSubmitAnswer={this.onSubmitAnswer} />;
   }
 }

@@ -4,7 +4,7 @@
   "env": {
     "jest": true
   },
-  "plugins": ["import", "prettier", "react"],
+  "plugins": ["import", "prettier", "react", "react-hooks"],
   "rules": {
     "no-use-before-define": 0,
     "react/prop-types": 0,
@@ -12,6 +12,8 @@
     "react/jsx-filename-extension": 0,
     "import/prefer-default-export": 0,
     "prettier/prettier": "error",
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

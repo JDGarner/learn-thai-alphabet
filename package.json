@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "eslint-plugin-react-hooks": "^1.6.0",
     "react": "16.8.3",
     "react-native": "0.59.2",
     "styled-components": "^4.2.0"

@@ -1,12 +1,14 @@
 Main:
-- use generic react hook for text change?
-- read up on react hooks best practices
+- Add menu/mechanics (decide on)
 - Add style/design
 - Add more words
 - Add some info about enabling Thai keyboard
+- Move data to backend
+- Add sounds
 
 Minor:
 - Add prop-types
+- move colors to colors.js
 
 Maybe:
 - Add redux?

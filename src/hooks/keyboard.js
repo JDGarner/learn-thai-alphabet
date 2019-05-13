@@ -18,7 +18,6 @@ export default () => {
     function onKeyboardDidHide() {
       setVisible(false);
     }
-    console.log(">>> Keyboard: ", Keyboard);
 
     Keyboard.addListener("keyboardDidShow", onKeyboardDidShow);
     Keyboard.addListener("keyboardDidHide", onKeyboardDidHide);

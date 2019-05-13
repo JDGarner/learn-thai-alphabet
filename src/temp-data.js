@@ -1,17 +1,17 @@
 const tempData = [
   {
-    english: "Chicken",
-    phoentic: "Gai",
+    english: "Chicken simultaneous",
+    phonetic: "Gai",
     thai: "ไก่"
   },
   {
     english: "Egg",
-    phoentic: "Khai",
+    phonetic: "Khai",
     thai: "ไข่"
   },
   {
     english: "Sleep",
-    phoentic: "Non",
+    phonetic: "Non",
     thai: "นอน"
   }
 ];

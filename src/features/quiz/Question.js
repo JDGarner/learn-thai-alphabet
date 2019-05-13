@@ -6,7 +6,7 @@ import {
   MediumText,
   MediumButton,
   CenteredContainer,
-  HideKeyboard
+  HideKeyboardOnTouch
 } from "../../components";
 
 const GivenText = styled(LargeText)`
@@ -28,32 +28,42 @@ const SubmitButton = styled(MediumButton)`
   margin-bottom: 220px;
 `;
 
+// TODO: calculate width based on answer length (min length should be placeholder length)
 const AnswerInput = styled(TextInput)`
   border-bottom-width: 1px;
-  border-bottom-color: grey;
+  border-bottom-color: #d3d3d3;
+  padding: 5px;
+  margin-top: 20px;
+  min-width: 135px;
+  text-align: center;
+  font-size: ${props => props.theme.medium.fontSize};
+  font-weight: ${props => props.theme.medium.fontWeight};
 `;
 
-export default function Question({ givenText, phonetic, onSubmitAnswer }) {
+export default function Question({ givenText, phonetic, placeholder, onSubmitAnswer }) {
   const [userAnswerText, setUserAnswerText] = useState("");
 
-  // TODO: ok to declare inside here?
-  const onSubmit = () => {
+  const onPressSubmit = () => {
     onSubmitAnswer(userAnswerText);
     setUserAnswerText("");
   };
 
   return (
-    <HideKeyboard>
+    <HideKeyboardOnTouch>
       <QuestionContainer>
         <QuestionDetails>
           <GivenText>{givenText}</GivenText>
           <MediumText>{`(${phonetic})`}</MediumText>
-          <AnswerInput onChangeText={setUserAnswerText} value={userAnswerText} />
+          <AnswerInput
+            value={userAnswerText}
+            placeholder={placeholder}
+            onChangeText={setUserAnswerText}
+          />
         </QuestionDetails>
-        <SubmitButton onPress={onSubmit}>
+        <SubmitButton onPress={onPressSubmit}>
           <Text>Submit</Text>
         </SubmitButton>
       </QuestionContainer>
-    </HideKeyboard>
+    </HideKeyboardOnTouch>
   );
 }
